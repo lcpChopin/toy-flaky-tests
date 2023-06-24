@@ -1,6 +1,6 @@
 # toy-flaky-tests
 
-Toy examples of flaky tests for evaluating the abilities of simple root cause finders
+Toy dataset of flaky tests in Java for evaluating the abilities of simple root cause finders
 
 ## Contributing / Development
 
