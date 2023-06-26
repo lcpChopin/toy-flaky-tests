@@ -3,3 +3,6 @@ target
 *.inv*
 *.dtrace*
 *.decls-DynComp
+daikon-pass.log
+daikon-fail.log
+DaikonCleanDiff.class
