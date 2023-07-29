@@ -24,9 +24,4 @@ mvn test -Dtest=class#method
 mvn test
 # compile w/o running tests (that will likely fail)
 mvn package -Dmaven.test.skip
-# automatically create the passing and failing .inv files
-./diff-flaky-daikon.sh <pass|fail> <com.example.ExampleTest>
-# create the cleaned diff
-# compile if you haven't already: javac -cp $DAIKONDIR/daikon.jar DaikonCleanDiff.java
-java -cp .:$DAIKONDIR/daikon.jar DaikonCleanDiff daikon-pass.inv.gz daikon-pass.inv.gz daikon-fail.inv.gz
 ```
