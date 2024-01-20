@@ -6,3 +6,4 @@ target
 daikon-pass.log
 daikon-fail.log
 DaikonCleanDiff.class
+log.txt
