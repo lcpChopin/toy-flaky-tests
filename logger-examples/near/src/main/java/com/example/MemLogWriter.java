@@ -1,9 +1,11 @@
 package com.example;
 
 public class MemLogWriter {
+    private static // singleton pattern
+    MemLogWriter instance = new MemLogWriter();
     String logs;
 
-    MemLogWriter() {
+    private MemLogWriter() {
         logs = "";
     }
 
@@ -12,19 +14,23 @@ public class MemLogWriter {
     }
 
     public void warn(String msg) {
-        logs += "[WARN] " + msg + "\n";
+        log("[WARN] " + msg);
     }
 
-    private void resetLogs() {
+    public void resetLogs() {
         logs = "";
     }
 
     public void logStartupTime() {
         resetLogs();
-        log("Logging Enabled: " + System.currentTimeMillis());
+        log("Log Started: " + System.currentTimeMillis());
     }
 
     public String getLogs() {
         return logs;
+    }
+
+    public static MemLogWriter get() {
+        return instance;
     }
 }
