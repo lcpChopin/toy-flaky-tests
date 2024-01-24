@@ -17,8 +17,7 @@ public class FileLogWriter {
     }
 
     public void warn(String msg) throws IOException {
-        msg = "[WARN] " + msg + "\n";
-        Files.write(Paths.get("log.txt"), msg.getBytes(), StandardOpenOption.APPEND);
+        log("[WARN] " + msg);
     }
 
     public String getLogs() throws IOException {
