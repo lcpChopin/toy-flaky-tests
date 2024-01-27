@@ -5,25 +5,30 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class MemLogWriterTest {
-    @Test // polluter
+    private static MemLogWriter logWriter = new MemLogWriter();
+
+    // polluter
+    @Test
     public void testLogsWithNewline() {
-        MemLogWriter.get().log("Test");
-        assertTrue(MemLogWriter
-                .get().getLogs().endsWith("\n"));
+        logWriter.log("Test");
+
+        assertTrue(logWriter.getLogs().endsWith("\n"));
     }
 
-    @Test // victim
+    // victim
+    @Test
     public void testWarnStartsWithWarn() {
-        MemLogWriter.get().warn("Test");
-        assertTrue(MemLogWriter
-                .get().getLogs().startsWith("[WARN]"));
+        logWriter.warn("Test");
+
+        assertTrue(logWriter.getLogs().startsWith("[WARN]"));
     }
 
-    @Test // near-cleaner
+    // near-cleaner
+    @Test
     public void testLogStartupTime() {
         long time = System.currentTimeMillis();
-        MemLogWriter.get().logStartupTime();
-        assertTrue(MemLogWriter.get().getLogs()
-                .startsWith("Log Started: " + time));
+        logWriter.logStartupTime();
+
+        assertTrue(logWriter.getLogs().startsWith("Logging Enabled: " + time));
     }
 }
